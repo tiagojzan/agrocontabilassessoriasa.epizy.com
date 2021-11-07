@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- se adapta a telas variadas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- compatibilidade com Edge e chrome-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="Copyright" content="2018. Agrocontábil Assessoria SC Ltda. Todos os direitos reservados">
+    <meta name="description" content="Empresa de serviços contábeis e fiscais em âmbito municipal, estadual e federal.">
+    <meta name="keywords" content="Contador, Contabilidade, Escritório de Contabilidade, Escritório Santo Augusto, Contabilidade Santo Augusto">
+    <meta name="robots" content="all, index, follow">
+    <meta name="rating" content="general" />
+    <meta name="author" content="Tiago José Zangerolami, www.linkedin.com/in/tiago-front-end-web, www.facebook.com/tiago.zangerolami">
+
+    <title>@gro-Cont@bil</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Icon para Android -->
+    <link rel="icon" type="image/png" href="img/favicon-192x192.png" sizes="192x192">
+    <!-- Icon para Apple -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-180x180.png">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/style.bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/style_template/jquery.accordion.calendario.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style_template/full-slider.css">
+
+    <!-- Fonte Wesome -->
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fa-brands.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fa-brands.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/web-fonts-with-css/css/fontawesome.css">
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/calendario/calendario.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.js"></script>
+</head>
+
+<body>
+    <!-- /////  MENU  \\\\\ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- <div class="contato_cabecalho">
+                <img src="img/watts menor.png" style="width: 1.5em;z-index: initial; float:left; height: 1.5em;vertical-align: text-bottom;">
+                <a href="tel:+55991865939" style="color: black;font-weight: 900;float:left;">Celular/WhatsApp: (55) 9 9186-5939</a></br>
+                <i class="fa fa-phone" style="float:center;line-height: 2;" aria-hidden="true"></i>
+                <a href="tel:+5537813628" style="color:black;font-weight: 900;float:center;line-height:2;">Telefone/FAX: (55) 3781-3628</a></br>
+            </div> -->
+            <div class="navbar-brand">
+                <a style="font-size:1.5em;margin-left:5em;color: rgb(255, 255, 255);" href="http://www.google.com.br">@gro-Cont@bil</a>
+                <div class="navbar-brand2">
+                    <a href="#" class="nome_logo">Assessoria SC Ltda.</a>
+                    <!-- <img src="img/watts menor.png" style="width: 1em;height: 1em;vertical-align: text-bottom;z-index: initial;">
+                    <a href="tel:+55991865939" style="color: rgb(255, 255, 255);font-size:1vw;">(55)99186-5939</a>
+                    <a href="tel:+5537813628" class="">(55)3781-3628</a>-->
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active" data-toggle="collapse" data-target="#navbarResponsive">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home
+                              <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /////  HEADER  \\\\\ -->
+    <header>
+        <section>
+            <div class="col-md-12" style="margin-top: 5em;">
+                <div id="Obs" style="color:black;font-size:1.5em;float:center;text-align:center;"></div>
+                <script>
+                    //jQuery TEXTO ANIMADO
+                    var div = document.getElementById('Obs');
+                    var texto = 'Obrigado pela visita! Estamos sempre à sua disposição!';
+
+                    function escrever(str, el) {
+                        var char = str.split('').reverse();
+                        var typer = setInterval(function() {
+                            if (!char.length) return clearInterval(typer);
+                            var next = char.pop();
+                            el.innerHTML += next;
+                        }, 100);
+                    }
+                    escrever(texto, div);
+                </script>
+            </div>
+            <div class="col-md-12" style="margin-top: 1em;float:center;text-align:center;">
+                <a href="tel:+5537813628" title="Ligar" style="color:black;"><i class="fas fa-phone-square"></i> Telefone/FAX:(55)3781-3628</a>
+                <a href="tel:+55991865939" title="Ligar" style="color:black;"><img src="img/watts menor.png" style="width: 1.5em; height: 1.5em;"></img> Celular/WhatsApp: (55)99186-5939</a>
+            </div>
+            <div class="col-md-12" style="margin-top: 1em;float:center;text-align:center;">
+                <a href="mailto:contabil@agrocontabil.com" title="Enviar e-mail" style="color:black;"><i class="fas fa-envelope"></i> contabil@agrocontabil.com</a></br>
+                <a href="mailto:pessoal@agrocontabil.com" title="Enviar e-mail" style="color:black;"><i class="fas fa-envelope"></i> pessoal@agrocontabil.com</a></br>
+                <a href="mailto:financeiro@agrocontabil.com" title="Enviar e-mail" style="color:black;"><i class="fas fa-envelope"></i> financeiro@agrocontabil.com</a>
+            </div>
+
+        </section>
+    </header>
+    <!-- /////  FIM DO HEADER  \\\\\ -->
+
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!-- MODELO DE VIRADA EM CSS FOTOS -->
+
+<div class="col-span-6" style="margin-top: 9em;">
+    <div class="scroll_fade_in_out">
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+                <div class="front">
+                    <img src="img/fachada 01.jpg" style="border-radius: 5px;box-shadow: 5px 10px rgba(0, 0, 0, 0.199);float:right; width: 45vw; height: 35vw;">
+                </div>
+                <div class="back">
+                    <img src="img/fachada 02.jpg" style="border-radius: 5px;box-shadow: 5px 10px rgba(0, 0, 0, 0.199);float:initial; width: 45vw; height: 35vw;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+<style>
+    /* O container geral define a perspectiva */
+    
+    .flip-container {
+        perspective: 1000;
+    }
+    /* vira os containers frente e verso quando o mouse passa em cima */
+    
+    .flip-container:hover .flipper,
+    .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+    }
+    
+    .flip-container,
+    .front,
+    .back {
+        width: 320px;
+        height: 480px;
+    }
+    /* define a velocidade da transição */
+    
+    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    /* esconde o verso durante a animação */
+    
+    .front,
+    .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    /* frente posicionada sobre o verso */
+    
+    .front {
+        z-index: 2;
+    }
+    /* verso inicialmente escondido */
+    
+    .back {
+        transform: rotateY(180deg);
+    }
+</style>
+
+
+<!-- /////INÍCIO DA ABA CONTATOS\\\\\ -->
+<section class="container2">
+    <div class="row" id="bordas_contato">
+        <div class="col-xs-auto col-span-auto" id="contato">
+            <!--<div class="col-xs-6 col-span-6" id="contato">-->
+            <div class="column">
+                <form action="php/email.php">
+                    </br><label for="fname">Nome Completo</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Seu nome..." required>
+                    <!-- formulário obrigatório required -->
+                    <label for="lname">Telefone</label>
+                    <input type="text" id="lname" name="tel" placeholder="(xx) 9XXXX-XXXX" required>
+                    <label for="country">Cidade</label required>
+                    <select id="country" name="country">
+                                 <option value="RS">Santo Augusto/RS</option>
+                                 <option value="RS">Ijuí/RS</option>
+                                 <option value="RS">Três Passos/RS</option>
+                                 <option value="RS">Campo Novo/RS</option>
+                                 <option value="RS">Nova Ramada/RS</option>
+                                 <option value="RS">Horizontina/RS</option>
+                                 <option value="BR">Outra cidade</option>
+                            </select>
+                    <label for="subject">Mensagem</label>
+                    <textarea id="subject" name="subject" placeholder="Escreva aqui a sua mensagem..." style="height:170px" required></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+
+<!-- //// Início aba nossos Clientes \\\\\ -->
+<section class="container2" id="clientes">
+    <div class="row">
+        <div class="col-xs-6 col-md-12">
+            <div class="scroll_fade_in_out">
+                </br>
+                <div class="historia">
+                    Alguns dos nossos principais clientes:
+                </div>
+            </div>
+        </div>
+        <!-- col-lg-4 = grades, nome_clientes = bordas, margin, shawdow -->
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="rounded-circle" src="img/calcados zan.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Calçados Zan</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="Calçados Zan Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Calçados Zan Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.outlook.com/" target="_blank" title="Calçados Zan E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="rounded-circle" src="img/clinica wighert.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Clínica Wiegert</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="Clínica Wiegert Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="Clínica Wiegert Instagram"><i class="fab fa-instagram"></a></i>
+                    <a href="https://www.outlook.com/" target="_blank" title="Clínica Wiegert E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="rounded-circle" src="img/ddr.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>DDR</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="DDR Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="DDR Instagram"><i class="fab fa-instagram"></a></i>
+                    <a href="https://www.outlook.com/" target="_blank" title="DDR E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="" src="img/delrio.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>DelRio</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="DelRio Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="DelRio Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.outlook.com/" target="_blank" title="DelRio E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="rounded-circle" src="img/rca.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>RCA</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="RCA Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="RCA Instagram"><i class="fab fa-instagram"></a></i>
+                    <a href="https://www.outlook.com/" target="_blank" title="RCA E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+
+        <div class="col-xs-6 col-lg-4 nome_clientes">
+            <div class="scroll_fade_in_out">
+                <img class="rounded-circle" src="img/super santi.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>SuperSanti</h2>
+                <p></p>
+                <div class="social_icons">
+                    <a href="https://pt-br.facebook.com/" target="_blank" title="SuperSanti Facebook"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" title="SuperSanti Instagram"><i class="fab fa-instagram"></a></i>
+                    <a href="https://www.outlook.com/" target="_blank" title="SuperSanti E-mail"><i class="fas fa-envelope-square"></i></a>
+                </div>
+                <!-- <p><a class="btn btn-secondary" href="#" role="button">Facebook &raquo;</a></p>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="menu_mobile">
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <div class="gallery js-flickity">
+        <div class="gallery-cell"><img src="img/2.jpg" alt="Primeiro" class="img-responsive"></div>
+        <div class="gallery-cell"><img src="img/5.jpg" alt="Segundo" class="img-responsive"></div>
+        <div class="gallery-cell"><img src="img/3.jpg" alt="Terceiro" class="img-responsive"></div>
+        <div class="gallery-cell"><img src="img/4.jpg" alt="Quarto" class="img-responsive"></div>
+        <div class="gallery-cell"><img src="img/Banner Home.jpg" alt="Quinto" class="img-responsive"></div>
+    </div>
+</div>
+<style>
+    /* ////// INÍCIO DO TOCH SCREAN CARROUSEL \\\\\\ */
+    
+    .gallery-cell {
+        width: 100%;
+        height: 200px;
+        margin-right: 10px;
+        background: #8C8;
+        counter-increment: gallery-cell;
+    }
+    /* cell number */
+    
+    .gallery-cell:before {
+        display: block;
+        text-align: center;
+        content: counter(gallery-cell);
+        line-height: 200px;
+        font-size: 80px;
+        color: white;
+    }
+    /* big buttons, no circle */
+    
+    .flickity-prev-next-button {
+        width: 100px;
+        height: 100px;
+        background: transparent;
+    }
+    /* arrow color */
+    
+    .flickity-prev-next-button .arrow {
+        fill: white;
+    }
+    
+    .flickity-prev-next-button.no-svg {
+        color: white;
+    }
+    
+    .flickity-prev-next-button:hover {
+        background: transparent;
+    }
+    /* hide disabled button */
+    
+    .flickity-prev-next-button:disabled {
+        display: none;
+    }
+    /* position dots in gallery */
+    
+    .flickity-page-dots {
+        bottom: 0px;
+    }
+    /* white circles */
+    
+    .flickity-page-dots .dot {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+        background: transparent;
+        border: 2px solid white;
+    }
+    /* fill-in selected dot */
+    
+    .flickity-page-dots .dot.is-selected {
+        background: white;
+    }
+    /* ////// FIM DO TOCH SCREAN CARROUSEL \\\\\\ */
+</style>

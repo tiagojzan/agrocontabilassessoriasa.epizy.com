@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <!-- elementos responsivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- compatibilidade com Edge e chrome, se adapta a telas variadas-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="Copyright" content="2018. Agrocontábil Assessoria SC Ltda. Todos os direitos reservados">
+    <meta name="description" content="Empresa de serviços contábeis e fiscais em âmbito municipal, estadual e federal.">
+    <meta name="keywords" content="Contador, Contabilidade, Escritório de Contabilidade, Escritório Santo Augusto, Contabilidade Santo Augusto">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Tiago José Zangerolami, www.linkedin.com/in/tiago-front-end-web, www.facebook.com/tiago.zangerolami">
+
+    <title>@gro-Cont@bil</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- JS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!--
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+                    risus.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div> -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        body {
+            font-family: Verdana, sans-serif;
+        }
+        
+        .mes {
+            padding: 2em 2em;
+            width: 100%;
+            /* background: #1abc9c; */
+            background: linear-gradient(to right, rgb(102, 189, 209), rgb(17, 155, 202));
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .mes :hover {
+            color: black;
+            opacity: 0.6;
+        }
+        
+        .mes ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .mes ul li {
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .mes .prev {
+            float: left;
+            padding-top: 10px;
+        }
+        
+        .mes .next {
+            float: right;
+            padding-top: 10px;
+        }
+        
+        .nomedia {
+            padding: 1em 1em;
+            width: 100%;
+            background: rgba(197, 219, 224, 0.767);
+            font-size: 1em;
+            display: none;
+        }
+        
+        .nomedia li {
+            display: inline-block;
+            width: 13%;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        
+        .dias {
+            padding: 1em 0.5em;
+            width: 100%;
+            background-color: rgb(221, 238, 241);
+            line-height: 3em;
+            display: none;
+        }
+        
+        .dias li {
+            list-style-type: none;
+            display: inline-block;
+            width: 13%;
+            text-align: center;
+            margin-bottom: 5px;
+            font-size: 1em;
+            color: rgb(0, 0, 0);
+        }
+        
+        .dias li .active {
+            padding: 5px;
+            background: #1abc9c;
+            color: white !important
+        }
+        
+        .col-md-4 {
+            border: 0.1em solid rgba(0, 0, 0, 0.199);
+            border-radius: 5px;
+        }
+        /* Add media queries for smaller screens */
+        
+        @media screen and (max-width:720px) {
+            .nomedia li,
+            .dias li {
+                width: 13.1%;
+            }
+        }
+        
+        @media screen and (max-width: 420px) {
+            .nomedia li,
+            .dias li {
+                width: 12.5%;
+            }
+            .dias .active {
+                padding: 2px;
+            }
+        }
+        
+        @media screen and (max-width: 290px) {
+            .nomedia li,
+            .dias li {
+                width: 12.2%;
+            }
+        }
+        /*=========== botao para o topo ==========*/
+        
+        #botao_para_topo {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            outline: none;
+            background: linear-gradient(to right, rgb(17, 155, 202), rgb(102, 189, 209));
+            border: 0.1em solid black;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 2em;
+        }
+        
+        #botao_para_topo:hover {
+            border-bottom: 5px solid white;
+        }
+        /*=========== botao para baixo ==========*/
+    </style>
+
+
+    <div class="container">
+        <!-- //////  EFEITO DE ROLAGEM DOS DIAS DO MÊS  \\\\\\ -->
+        <script>
+            /*=========== JAN  ==========*/
+            $(document).ready(function() {
+                $("#mesJAN").click(function() {
+                    $("#diasJAN").slideToggle("slow");
+
+                });
+            });
+            /*===========FEV  ==========*/
+            $(document).ready(function() {
+                $("#mesFEV").click(function() {
+                    $("#diasFEV").slideToggle("slow");
+                });
+            });
+            /*=========== MAR  ==========*/
+            $(document).ready(function() {
+                $("#mesMAR").click(function() {
+                    $("#diasMAR").slideToggle("slow");
+                });
+            });
+            /*=========== ABRIL  ==========*/
+            $(document).ready(function() {
+                $("#mesABR").click(function() {
+                    $("#diasABR").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesMAI").click(function() {
+                    $("#diasMAI").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesJUN").click(function() {
+                    $("#diasJUN").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesJUL").click(function() {
+                    $("#diasJUL").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesAGO").click(function() {
+                    $("#diasAGO").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesSET").click(function() {
+                    $("#diasSET").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesOUT").click(function() {
+                    $("#diasOUT").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesNOV").click(function() {
+                    $("#diasNOV").slideToggle("slow");
+                });
+            });
+            $(document).ready(function() {
+                $("#mesDEZ").click(function() {
+                    $("#diasDEZ").slideToggle("slow");
+                });
+            });
+        </script>
+
+        <h1 style="font-size:1.5em;">
+            <span class="glyphicon glyphicon-calendar"></span>
+            <a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria" target="_blanck"> Agenda Tributária - Dias do Vencimento</h1></a>
+
+
+            <div class="container">
+                <div class="row">
+                    <!-- row = 03 calendários lado a lado -->
+                    <div class="col-md-4">
+                        <div class="mes" id="mesJAN" title="Click para descer">
+                            <thead>
+                                <!--  <thead> representa cabeçalho da tabela -->
+                                <ul>
+                                    <li class="prev"></li>
+                                    <li class="next">&#x21C5;</li>
+                                    <li> Janeiro<br>
+                                        <span style="font-size:18px">2018</span>
+                                    </li>
+                                </ul>
+                            </thead>
+                        </div>
+                        <!--    <ul class="nomedia">
+                        <li>Seg</li>
+                        <li>Ter</li>
+                        <li>Qua</li>
+                        <li>Qui</li>
+                        <li>Sex</li>
+                        <li>Sáb</li>
+                        <li>Dom</li>
+                    </ul> -->
+                        <thead>
+                            <ul class="dias" id="diasJAN">
+                                <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+                        </thead>
+                        <tbody>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                            </ul>
+                        </tbody>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mes" id="mesFEV" title="Click para descer">
+                            <thead>
+                                <ul>
+                                    <li class="prev"></li>
+                                    <li class="next">&#x21C5;</li>
+                                    <li>Fevereiro<br>
+                                        <span style="font-size:18px">2018</span>
+                                    </li>
+                                </ul>
+                            </thead>
+                        </div>
+
+                        <ul class="dias" id="diasFEV">
+                            <thead>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                                <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+                            </thead>
+                            <tbody>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                        title="Tabela em PDF...">-pdf</a></li>
+                                <li>6</li>
+                                <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                                <li>8</li>
+                                <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                                <li><span class="active">10</span></li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                                <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li>18</li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li>28</li>
+                            </tbody>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="mes" id="mesMAR" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Março<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasMAR">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+
+                    <!-- ////////////ABRIL     MAIO     JUNHO//////////////// -->
+
+                    <!-- row = 03 calendários lado a lado -->
+                    <div class="col-md-4">
+                        <div class="mes" id="mesABR" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Abril<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasABR">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesMAI" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Maio<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasMAI">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesJUN" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Junho<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasJUN">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                        </ul>
+                    </div>
+
+                    <!-- ////////////Julho agosto setembro//////////////// -->
+
+                    <!-- row = 03 calendários lado a lado -->
+                    <div class="col-md-4">
+                        <div class="mes" id="mesJUL" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Julho<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasJUL">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesAGO" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Agosto<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasAGO">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesSET" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Setembro<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasSET">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                        </ul>
+                    </div>
+
+                    <!-- ////////////Novembro     Outubro     Dezembro//////////////// -->
+
+                    <!-- row = 03 calendários lado a lado -->
+                    <div class="col-md-4">
+                        <div class="mes" id="mesOUT" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Outubro<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasOUT">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesNOV" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Novembro<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <ul class="dias" id="diasNOV">
+
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="mes" id="mesDEZ" title="Click para descer">
+                            <ul>
+                                <li class="prev"></li>
+                                <li class="next">&#x21C5;</li>
+                                <li>
+                                    Dezembro<br>
+                                    <span style="font-size:18px">2018</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--    <ul class="nomedia">
+                        <li>Seg</li>
+                        <li>Ter</li>
+                        <li>Qua</li>
+                        <li>Qui</li>
+                        <li>Sex</li>
+                        <li>Sáb</li>
+                        <li>Dom</li>
+                    </ul> -->
+                        <ul class="dias" id="diasDEZ">
+                            <li style="background: rgba(197, 219, 224, 0.767);">Seg</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Ter</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qua</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Qui</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sex</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Sáb</li>
+                            <li style="background: rgba(197, 219, 224, 0.767);">Dom</li>
+
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5</a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip"
+                                    title="Tabela em PDF...">-pdf</a></li>
+                            <li>6</li>
+                            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria/agenda-tributaria-2018/fevereiro/7" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+                            <li>8</li>
+                            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+                            <li><span class="active">10</span></li>
+                            <li>11</li>
+                            <li>12</li>
+                            <li>13</li>
+                            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+                            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+                            <li>16</li>
+                            <li>17</li>
+                            <li>18</li>
+                            <li>19</li>
+                            <li>20</li>
+                            <li>21</li>
+                            <li>22</li>
+                            <li>23</li>
+                            <li>24</li>
+                            <li>25</li>
+                            <li>26</li>
+                            <li>27</li>
+                            <li>28</li>
+                            <li>29</li>
+                            <li>30</li>
+                            <li>31</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--  <b class="btn btn-default" role="button">View details &raquo;</b>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $("b").click(function() {
+                        $("p").slideToggle();
+                    });
+                });
+            </script> -->
+
+            <!--
+        <h1>Agenda Tributária (conforme Subsecretaria de Arrecadação, Cadastros e Atendimento)</h1>
+
+        <div class="month">
+            <ul>
+                <li class="prev">&#10094;</li>
+                <li class="next">&#10095;</li>
+                <li>
+                    Fevereiro<br>
+                    <span style="font-size:18px">2018</span>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="nomedia">
+            <li>Seg</li>
+            <li>Ter</li>
+            <li>Qua</li>
+            <li>Qui</li>
+            <li>Sex</li>
+            <li>Sáb</li>
+            <li>Dom</li>
+        </ul>
+
+        <ul class="dias">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li><a href="javascript:newPopup5()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IRRF - Títulos de Renda Fixa - Pessoa Física...">5  </a><a href="javascript:newPopup5pdf()" target="_blanck" data-toggle="tooltip" title="Tabela em PDF..."> (.pdf)</a></li>
+            <li>6</li>
+            <li><a href="http://idg.receita.fazenda.gov.br/acesso-rapido/agenda-tributaria" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="Comprev - recolhimento efetuado por RPPS...">7</a></li>
+            <li>8</li>
+            <li><a href="javascript:newPopup9()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="IPI - Cigarros contendo Tabaco...">9</a></li>
+            <li><span class="active">10</span></li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Dia de entregar imposto de renda!">14</a></li>
+            <li><a href="javascript:newPopup15()" target="_blanck" data-toggle="tooltip" data-placement="bottom" title="PIS/PASEP - Retenção - Aquisição de autopeças...">15</a></li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+        </ul>
+        <li>
+
+        </li> -->
+
+
+
+            <script>
+                $(document).ready(function() {
+                    $('[data-toggle="tooltip"]').tooltip();
+                });
+            </script>
+
+            <script language=javascript type="text/javascript">
+                function newPopup15() {
+                    varWindow = window.open(
+                        'procurar na tabela.html',
+                        'pagina',
+                        "width=1200, height=650, scrollbars=no ");
+                }
+
+                function newPopup9() {
+                    varWindow = window.open(
+                        'popups/popup9.html',
+                        'pagina',
+                        "width=350, height=255, top=100, left=110, scrollbars=no ");
+                }
+
+                function newPopup5pdf() {
+                    varWindow = window.open(
+                        'popups/popup5.pdf',
+                        'pagina',
+                        "width=650, height=555, top=100, left=200, scrollbars=no ");
+                }
+
+                function newPopup5() {
+                    varWindow = window.open(
+                        'popups/popup5.xhtml',
+                        'pagina',
+                        "width=650, height=555, top=100, left=200, scrollbars=no ");
+                }
+
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function() {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("botao_para_topo").style.display = "block";
+                    } else {
+                        document.getElementById("botao_para_topo").style.display = "none";
+                    }
+                }
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+
+            <!--
+            <a href="javascript:newPopup15()">Abrir popup</a>-->
+
+
+            <!-- RODAPÉ -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <button onclick="topFunction()" id="botao_para_topo" title="Para cima">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i></button>
+
+</body>
+
+</html>

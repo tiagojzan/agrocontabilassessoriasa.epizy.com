@@ -1,0 +1,329 @@
+@charset "UTF-8";
+header {
+    margin-top: 7em;
+    /* content: "@gro-Cont@bil";
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    background: url("css/style_template/full-slider.css") #00D no-repeat fixed;
+    background-color: #1f0c04;
+    height: 95px;
+    width: 100%;
+    background: linear-gradient(45deg, #2bb5cf 0%, #3475b9 50%, #2bb5cf);
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.199);
+    background-repeat: no-repeat;
+    background-position: top center;*/
+}
+
+header:before {
+    /*content: "@gro-Cont@bil";
+    color: #fff;
+    text-align: center;
+    align-items: center;
+    align-content: center;*/
+}
+
+
+/* ////// LOGO @gro-Cont@bil COM ROTAÇÃO \\\\\\ */
+
+.logo-agro {
+    content: "@gro-Cont@bil";
+    position: fixed;
+    display: block;
+    z-index: 1000;
+    padding: 0;
+    /*background-color: #0C0401;
+    border: transparent !important;*/
+    width: 100%;
+    /*
+    background: url('ver logo.png') no-repeat 0 0; */
+}
+
+.rotate-container {
+    cursor: pointer;
+}
+
+.rotate-container.checked .rotate-container-front {
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.rotate-container.checked .rotate-container-back {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.rotate-container.rotate-hover:hover .rotate-container-front {
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.rotate-container.rotate-hover:hover .rotate-container-back {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.no-csstransforms3d .rotate-container-flipper .rotate-container-back,
+.no-csstransforms3d .rotate-container .rotate-container-back {
+    display: none;
+}
+
+.no-csstransforms3d .rotate-container-flipper.checked .rotate-container-front,
+.no-csstransforms3d .rotate-container.checked .rotate-container-front {
+    display: none;
+}
+
+.no-csstransforms3d .rotate-container-flipper.checked .rotate-container-back,
+.no-csstransforms3d .rotate-container.checked .rotate-container-back {
+    display: block;
+}
+
+.rotate-container-flipper {
+    -webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.rotate-container-front,
+.rotate-container-back {
+    -webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rotate-container-front {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.rotate-container-back {
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.brand-rotate-container,
+.brand-rotate-front,
+.brand-rotate-back {
+    background: transparent;
+    border-radius: 5%;
+    width: 230px;
+    height: 40px;
+}
+
+.brand-rotate-front,
+.brand-rotate-back {
+    padding: 0;
+}
+
+.brand-rotate-front {
+    background: transparent;
+    /*background-color: black;*/
+    /*background: linear-gradient(45deg, #2bb5cf 0%, #3475b9 50%, #2bb5cf);*/
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.199);
+}
+
+.brand-rotate-back {
+    background: transparent;
+    /*background: linear-gradient(45deg, #2bb5cf 0%, #3475b9 50%, #2bb5cf);*/
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.199);
+    border-color: 0.1em solid black;
+    border-radius: 5%;
+    width: 205px;
+    height: 40px;
+}
+
+
+/*para vários tipos de browsers */
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+
+/* ////// fim LOGO COM ROTAÇÃO \\\\\\ */
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: #F1F1E5;*/
+}
+
+nav#menu_desktop {
+    display: none;
+}
+
+nav#menu_mobile {
+    display: block;
+    clear: both;
+    background: linear-gradient(45deg, #2bb5cf 0%, #3475b9 50%, #2bb5cf);
+    width: 100%;
+}
+
+nav#menu_mobile ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 4px;
+    list-style-type: none;
+}
+
+nav#menu_mobile ul li {
+    width: 100%;
+}
+
+nav#menu_mobile ul li a {
+    display: block;
+    font-style: italic;
+    font-size: 0.9em;
+    /*color: white; */
+    text-decoration: none;
+    padding: 4px 20px;
+    font-family: Georgia, "Times New Roman";
+    text-align: center;
+}
+
+nav ul li a:hover {
+    color: black;
+    /* background-color: white;*/
+}
+
+nav#menu_mobile ul li a:hover {
+    color: #1f0c04;
+    /* background-color: #ffffff;*/
+    border-bottom: #1f0c04 0.1em solid;
+}
+
+.historia {
+    margin-top: 1em;
+}
+
+#principal {
+    padding-top: 0em;
+    margin: 5px auto 20px;
+    width: 100%;
+}
+
+article {
+    margin: 30px 20px;
+    float: left;
+    width: 90%;
+}
+
+aside {
+    display: none;
+}
+
+.fotos_HOME {
+    margin-top: 0em;
+}
+
+.mobile_social_icons {
+    margin-top: 3em;
+    border-radius: 50%;
+    box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.199);
+}
+
+footer {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    clear: both;
+    /*background-image: url(imagens/rodape_mobile_320.png);
+    background-repeat: no-repeat;
+    margin: 0px auto;
+    height: 300px;
+    width: 100%;*/
+}
+
+section {
+    /*
+    margin-bottom: 15px; */
+}
